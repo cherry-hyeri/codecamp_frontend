@@ -27,7 +27,7 @@ export default function BoardDetailPage() {
         <S.CardWrapper>
           <S.Header>
             <S.AvatarWrapper>
-              {/* <S.Avatar src="../../public/images/avater.png" /> */}
+              <S.Avatar src="/images/avater.png" />
               <S.Info>
                 <S.Writer>{data?.fetchBoard?.writer}</S.Writer>
                 <S.CreatedAt>{data?.fetchBoard?.createdAt}</S.CreatedAt>
