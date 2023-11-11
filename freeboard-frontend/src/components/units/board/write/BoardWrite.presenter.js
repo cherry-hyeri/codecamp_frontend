@@ -1,4 +1,4 @@
-import * as S from "../../../styles/boardsNew";
+import * as S from "../../../../styles/boardsNew";
 
 export default function BoardWriteUI(props) {
   return (

@@ -1,4 +1,4 @@
-import * as S from "../../../styles/boardDetail";
+import * as S from "../../../../../styles/boardDetail";
 
 export default function BoardDetailUI(props) {
   return (
