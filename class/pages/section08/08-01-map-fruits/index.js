@@ -34,6 +34,7 @@ export default function MapFruitsPage() {
       <div>{bbb}</div>
       ====================
       <div>
+        {/*3. 실무 효율적인 랜더링 예제*/}
         {FRUITS.map((el) => (
           <div>
             {el.number} {el.title}
