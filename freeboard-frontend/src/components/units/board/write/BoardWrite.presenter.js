@@ -4,7 +4,7 @@ export default function BoardWriteUI(props) {
   return (
     <>
       <S.Wrapper>
-        <S.Title>게시글 등록</S.Title>
+        <S.Title>{props.isEdit ? "게시글 수정" : "게시글 등록"}</S.Title>
         <S.WriterWrapper>
           <S.InputWrapper>
             <S.Label>작성자</S.Label>
@@ -70,10 +70,10 @@ export default function BoardWriteUI(props) {
         </S.OptionWrapper>
         <S.ButtonWrapper>
           <S.SubmitButton
-            onClick={props.onClickSubmit}
-            isActive={props.isActive}
+            onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
+            isActive={props.isEdit ? true : props.isActive}
           >
-            등록하기
+            {props.isEdit ? "수정하기" : "등록하기"}
           </S.SubmitButton>
         </S.ButtonWrapper>
       </S.Wrapper>
