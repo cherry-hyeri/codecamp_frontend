@@ -7,7 +7,7 @@ export default function BoardDetailUI(props) {
         <S.CardWrapper>
           <S.Header>
             <S.AvatarWrapper>
-              <S.Avatar src="/images/avater.png" />
+              <S.Avatar src="/images/avatar.png" />
               <S.Info>
                 <S.Writer>{props.data?.fetchBoard?.writer}</S.Writer>
                 <S.CreatedAt>{props.data?.fetchBoard?.createdAt}</S.CreatedAt>
