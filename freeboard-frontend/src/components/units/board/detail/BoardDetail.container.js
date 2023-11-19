@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import BoardCommentWrite from "../../boardComment/write/BoardCommentWrite.container";
 import BoardDetailUI from "./BoardDetail.presenter";
 import { FETCH_BOARD } from "./BoardDetail.queries";
 
@@ -15,9 +16,12 @@ export default function BoardDetail() {
   };
 
   return (
-    <BoardDetailUI
-      data={data}
-      onClickMoveToBoardEdit={onClickMoveToBoardEdit}
-    />
+    <>
+      <BoardDetailUI
+        data={data}
+        onClickMoveToBoardEdit={onClickMoveToBoardEdit}
+      />
+      <BoardCommentWrite></BoardCommentWrite>
+    </>
   );
 }
