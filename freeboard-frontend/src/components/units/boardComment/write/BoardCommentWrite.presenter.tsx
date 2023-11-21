@@ -1,6 +1,7 @@
 import * as S from "./BoardCommentWrite.styles";
+import { IBoardCommentWriteUIProps } from "./BoardCommentWrite.types";
 
-export default function BoardCommentWriteUI(props) {
+export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
   return (
     <>
       <S.Wrapper>
@@ -28,7 +29,7 @@ export default function BoardCommentWriteUI(props) {
             onChange={props.onChangeContents}
           />
           <S.ContentsSubmitWrapper>
-            <S.ContentsCount>0/100</S.ContentsCount>
+            <S.ContentsCount>{props.onChangeContents}/100</S.ContentsCount>
             <S.SubmitButton onClick={props.onClickSubmit}>
               등록하기
             </S.SubmitButton>
