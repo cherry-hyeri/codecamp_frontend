@@ -1,12 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_BOARDS_COMMENT = gql`
-  query fetchBoardsComment {
-    fetchBoardsComment {
+export const FETCH_BOARD_COMMENTS = gql`
+  query fetchBoardComments($boardId: ID!) {
+    fetchBoardComments(boardId: $boardId) {
       _id
       writer
       contents
       createdAt
+      rating
     }
   }
 `;
