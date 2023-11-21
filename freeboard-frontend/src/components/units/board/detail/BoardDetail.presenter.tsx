@@ -1,6 +1,8 @@
-import * as S from "../../../../../styles/boardDetail";
+import * as S from "./BoardDetail.style";
+import { getDate } from "../../../../../src/commons/libraries/utils";
+import { IBoardDetailUIProps } from "./BoardDetail.types";
 
-export default function BoardDetailUI(props) {
+export default function BoardDetailUI(props: IBoardDetailUIProps) {
   return (
     <>
       <S.Wrapper>
@@ -10,7 +12,9 @@ export default function BoardDetailUI(props) {
               <S.Avatar src="/images/avatar.png" />
               <S.Info>
                 <S.Writer>{props.data?.fetchBoard?.writer}</S.Writer>
-                <S.CreatedAt>{props.data?.fetchBoard?.createdAt}</S.CreatedAt>
+                <S.CreatedAt>
+                  {getDate(props.data?.fetchBoard?.createdAt)}
+                </S.CreatedAt>
               </S.Info>
             </S.AvatarWrapper>
           </S.Header>
