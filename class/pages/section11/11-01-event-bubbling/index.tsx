@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { MouseEvent } from "react";
 
 const FETCH_BOARDS = gql`
   query {
