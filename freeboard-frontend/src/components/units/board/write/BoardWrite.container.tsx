@@ -35,7 +35,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     IMutationUpdateBoardArgs
   >(UPDATE_BOARD);
 
-  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>): void => {
     setWriter(event.target.value);
     if (event.target.value !== "") {
       setWriterError("");
@@ -48,7 +48,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>): void => {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -61,7 +61,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>): void => {
     setTitle(event.target.value);
     if (event.target.value !== "") {
       setTitleError("");
@@ -74,7 +74,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     setContents(event.target.value);
     if (event.target.value !== "") {
       setContentsError("");
@@ -87,7 +87,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onClickSubmit = async () => {
+  const onClickSubmit = async (): Promise<void> => {
     if (!writer) {
       setWriterError("작성자를 입력해 주세요.");
     }
@@ -113,14 +113,14 @@ export default function BoardWrite(props: IBoardWriteProps) {
           },
         });
         console.log(result.data?.createBoard._id);
-        router.push(`/board/${result.data?.createBoard._id}`);
+        void router.push(`/board/${result.data?.createBoard._id}`);
       } catch (error) {
         if (error instanceof Error) alert(error.message);
       }
     }
   };
 
-  const onClickUpdate = async () => {
+  const onClickUpdate = async (): Promise<void> => {
     if (!title && !contents) {
       alert("수정할 내용이 없습니다.");
       return;
