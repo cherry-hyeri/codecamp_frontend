@@ -1,9 +1,14 @@
 import * as S from "./BoardWrite.styles";
 import { IBoardWriteUIProps } from "./BoardWrite.types";
 
-export default function BoardWriteUI(props: IBoardWriteUIProps) {
+export default function BoardWriteUI(props: IBoardWriteUIProps): JSX.Element {
   return (
     <>
+      {props.isOpen && (
+        <S.AddressModal visible={true}>
+          <S.AddressSearchInput onComplete={props.onCompleteAddressSearch} />
+        </S.AddressModal>
+      )}
       <S.Wrapper>
         <S.Title>{props.isEdit ? "게시글 수정" : "게시글 등록"}</S.Title>
         <S.WriterWrapper>
@@ -14,7 +19,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
               placeholder="이름을 적어주세요."
               onChange={props.onChangeWriter}
               defaultValue={props.data?.fetchBoard.writer ?? ""}
-              readOnly={!!props.data?.fetchBoard.writer}
+              readOnly={Boolean(props.data?.fetchBoard.writer)}
             />
             <S.Error>{props.writerError}</S.Error>
           </S.InputWrapper>
@@ -50,15 +55,41 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <S.InputWrapper>
           <S.Label>주소</S.Label>
           <S.ZipcodeWrapper>
-            <S.Zipcode placeholder="07250" />
-            <S.SearchButton>우편번호 검색</S.SearchButton>
+            <S.Zipcode
+              placeholder="07250"
+              readOnly
+              value={
+                props.zipcode !== ""
+                  ? props.zipcode
+                  : props.data?.fetchBoard.boardAddress?.zipcode ?? ""
+              }
+            />
+            <S.SearchButton onClick={props.onClickAddressSearch}>
+              우편번호 검색
+            </S.SearchButton>
           </S.ZipcodeWrapper>
-          <S.Address />
-          <S.Address />
+          <S.Address
+            readOnly
+            value={
+              props.address !== ""
+                ? props.address
+                : props.data?.fetchBoard.boardAddress?.address ?? ""
+            }
+          />
+          <S.Address
+            onChange={props.onChangeAddressDetail}
+            defaultValue={
+              props.data?.fetchBoard.boardAddress?.addressDetail ?? ""
+            }
+          />
         </S.InputWrapper>
         <S.InputWrapper>
           <S.Label>유튜브</S.Label>
-          <S.Youtube placeholder="링크를 복사해주세요." />
+          <S.Youtube
+            placeholder="링크를 복사해주세요."
+            onChange={props.onChangeYoutubeUrl}
+            defaultValue={props.data?.fetchBoard.youtubeUrl ?? ""}
+          />
         </S.InputWrapper>
         <S.ImageWrapper>
           <S.Label>사진첨부</S.Label>
