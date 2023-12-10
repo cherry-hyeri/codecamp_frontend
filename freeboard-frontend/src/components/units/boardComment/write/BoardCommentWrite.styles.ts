@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -56,13 +57,13 @@ export const Password = styled.input`
   margin-right: 24px;
 `;
 
-export const Stars = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  color: #bdbdbd;
-  letter-spacing: 2px;
-`;
+// export const Stars = styled.div`
+//   display: flex;
+//   align-items: center;
+//   font-size: 20px;
+//   color: #bdbdbd;
+//   letter-spacing: 2px;
+// `;
 
 export const ContentsWrapper = styled.div`
   width: 1200px;
@@ -110,3 +111,5 @@ export const SubmitButton = styled.button`
   font-size: 16px;
   cursor: pointer;
 `;
+
+export const Star = styled(Rate)``;

@@ -20,7 +20,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
             placeholder="비밀번호"
             onChange={props.onChangePassword}
           />
-          <S.Stars>★★★★★</S.Stars>
+          <S.Star onChange={props.setStar} />
         </S.InputWrapper>
         <S.ContentsWrapper>
           <S.Contents

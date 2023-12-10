@@ -9,11 +9,12 @@ import {
   IMutationCreateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
 
-export default function BoardCommentWrite() {
+export default function BoardCommentWrite(): JSX.Element {
   const router = useRouter();
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
+  const [star, setStar] = useState(0);
 
   const [createBoardComment] = useMutation<
     Pick<IMutation, "createBoardComment">,
@@ -68,6 +69,7 @@ export default function BoardCommentWrite() {
       onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       contents={contents}
+      setStar={setStar}
     />
   );
 }

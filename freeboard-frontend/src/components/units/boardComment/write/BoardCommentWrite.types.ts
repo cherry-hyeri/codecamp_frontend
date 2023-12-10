@@ -6,4 +6,5 @@ export interface IBoardCommentWriteUIProps {
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onClickSubmit: () => void;
   contents: string;
+  setStar: Dispatch<SetStateAction<number>>;
 }
