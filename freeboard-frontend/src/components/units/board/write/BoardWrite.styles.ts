@@ -14,12 +14,13 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   box-shadow: 0px 0px 10px gray;
 `;
 
 export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: bold;
 `;
 
@@ -56,18 +57,19 @@ export const InputWrapper = styled.div`
 `;
 
 export const Subject = styled.input`
-  width: 996px;
+  width: 1180px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
 `;
 
 export const Contents = styled.textarea`
-  width: 996px;
+  width: 1180px;
   height: 480px;
   padding-left: 16px;
   padding: 14px;
   border: 1px solid #bdbdbd;
+  resize: none;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -92,7 +94,7 @@ export const SearchButton = styled.button`
 `;
 
 export const Address = styled.input`
-  width: 996px;
+  width: 1180px;
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
@@ -100,14 +102,14 @@ export const Address = styled.input`
 `;
 
 export const Youtube = styled.input`
-  width: 996px;
+  width: 1180px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
 `;
 
 export const ImageWrapper = styled.div`
-  width: 996px;
+  width: 1180px;
   padding-top: 40px;
 `;
 
@@ -122,7 +124,7 @@ export const UploadButton = styled.button`
 `;
 
 export const OptionWrapper = styled.div`
-  width: 996px;
+  width: 1180px;
   padding-top: 40px;
 `;
 

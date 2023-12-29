@@ -118,7 +118,7 @@ export default function BoardWrite(props: IBoardWriteProps): JSX.Element {
 
   const onChangeAddressDetail = (
     event: ChangeEvent<HTMLInputElement>,
-  ): coid => {
+  ): void => {
     setAddressDetail(event.target.value);
   };
 
