@@ -1,10 +1,11 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import type { ChangeEvent } from "react";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import { CREATE_BOARD_COMMENT } from "./BoardCommentWrite.queries";
-import {
+import type {
   IMutation,
   IMutationCreateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
@@ -21,19 +22,19 @@ export default function BoardCommentWrite(): JSX.Element {
     IMutationCreateBoardCommentArgs
   >(CREATE_BOARD_COMMENT);
 
-  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>): void => {
     setWriter(event.target.value);
   };
 
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>): void => {
     setPassword(event.target.value);
   };
 
-  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     setContents(event.target.value);
   };
 
-  const onClickSubmit = async () => {
+  const onClickWrite = async (): Promise<void> => {
     try {
       if (typeof router.query.boardId !== "string") {
         alert("시스템에 문제가 있습니다.");
@@ -46,7 +47,7 @@ export default function BoardCommentWrite(): JSX.Element {
             writer,
             password,
             contents,
-            rating: 0,
+            rating: star,
           },
           boardId: router.query.boardId,
         },
@@ -60,6 +61,10 @@ export default function BoardCommentWrite(): JSX.Element {
     } catch (error) {
       if (error instanceof Error) alert(error.message);
     }
+
+    setWriter("");
+    setPassword("");
+    setContents("");
   };
 
   return (
@@ -67,7 +72,9 @@ export default function BoardCommentWrite(): JSX.Element {
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
-      onClickSubmit={onClickSubmit}
+      onClickWrite={onClickWrite}
+      writer={writer}
+      password={password}
       contents={contents}
       setStar={setStar}
     />
